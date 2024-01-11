@@ -1,0 +1,11 @@
+.header {
+  background-color: aquamarine;
+  height: 20%;
+  &__heading {
+    padding: 15px;
+    margin: 0;
+  }
+  &__link {
+    text-decoration: none;
+  }
+}
