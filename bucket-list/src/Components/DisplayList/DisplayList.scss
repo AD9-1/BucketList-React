@@ -1,0 +1,27 @@
+.card {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
+
+  &__list {
+    background-color: rgb(179, 185, 185);
+    width: 200px;
+    height: 200px;
+    border: none;
+    margin-bottom: 25px;
+    box-shadow: 3px 3px #373994;
+    -webkit-animation-name: "example";
+    -webkit-animation-duration: 1s;
+
+    @keyframes example {
+      from {
+        background-color: rgb(179, 185, 185);
+      }
+      to {
+        background-color: beige;
+      }
+    }
+  }
+}

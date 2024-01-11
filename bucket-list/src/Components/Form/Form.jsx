@@ -3,19 +3,19 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Form.scss";
 
-function Form() {
+function Form({ setTodos }) {
   const navigate = useNavigate();
 
   const handleFormSubmit = async (event) => {
-    //event.preventDefault();
-    
+    event.preventDefault();
+
     console.log(event.target.todo.value);
     console.log(event.target.todowhy.value);
     console.log(event.target.doneBy.value);
 
     const newTodo = {
       todo: event.target.todo.value,
-      todoWhy: event.target.todowhy.value,
+      todowhy: event.target.todowhy.value,
       doneBy: event.target.doneBy.value,
     };
 
@@ -25,6 +25,8 @@ function Form() {
         newTodo
       );
       console.log(response);
+
+      setTodos(response.data);
 
       // Navigate to home after successful form submission
     } catch (error) {

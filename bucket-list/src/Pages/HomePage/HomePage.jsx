@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <>
       <Header />
-      <Form />
+      <Form setTodos={setTodos} />
       <DisplayList todolist={todos} />
     </>
   );
