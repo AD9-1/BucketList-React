@@ -1,0 +1,33 @@
+.input__form {
+  width: 60%;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  .input__form__field {
+    width: 50%;
+    height: 40px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-family: "Courier New", Courier, monospace;
+    color: black;
+    background-color: #fff;
+  }
+  .input__form__button {
+    color: white;
+    width: 53%;
+    height: 40px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-family: cursive;
+    color: #333;
+    background-color: #499e94;
+  }
+}

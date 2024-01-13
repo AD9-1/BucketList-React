@@ -1,12 +1,17 @@
 .header {
-  background-color: aquamarine;
-  height: 20%;
-  &__heading {
-    padding: 15px;
-    margin: 0;
+  background-color: teal;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  &__logo {
+    font-size: 2rem;
+    text-align: center;
+    font-family: cursive;
+    color: #333;
+    height: 20vh;
+    width: 15vw;
   }
   &__link {
     text-decoration: none;
   }
-  
 }

@@ -2,16 +2,20 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-left: 0;
+  position: relative;
+  right: 10rem;
+  align-items: baseline;
 
   &__list {
-    background-color: rgb(179, 185, 185);
+    background-color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding:5rem;
     width: 200px;
     height: 200px;
-    border: none;
+
     margin-bottom: 25px;
-    box-shadow: 3px 3px #373994;
+    box-shadow: 4px 4px 4px #ddd;
     -webkit-animation-name: "example";
     -webkit-animation-duration: 1s;
 
@@ -22,6 +26,23 @@
       to {
         background-color: beige;
       }
+    }
+
+    &__todo {
+      font-size: 1.5rem;
+  
+      font-weight: 400;
+    }
+    &__reason {
+      font-size: 1rem;
+     
+      font-weight: 500;
+    }
+    &__date {
+      font-weight:500;
+    }
+    button {
+      background-color: rgb(29, 159, 156);
     }
   }
 }

@@ -6,6 +6,31 @@ import Form from "../../Components/Form/Form";
 import DisplayList from "../../Components/DisplayList/DisplayList";
 
 function HomePage() {
+  const onDelete = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:7071/bucketlist/${id}`
+      );
+      const OGbucketList = response.data;
+      const newBucketList = OGbucketList.filter((item) => item.id !== id);
+      setTodos(newBucketList);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+const onEdit=async(event,id)=>{
+const response =await axios.put(`http://localhost:7071/bucketlist/${id}`,event);
+const updateTodo={
+  ...todos,
+  [event.target.name]:event.target.value
+}
+console.log(event.target.value)
+}
+
+
+
   const [todos, setTodos] = useState([]);
 
   const fetchTodoList = async () => {
@@ -19,9 +44,13 @@ function HomePage() {
 
   return (
     <>
-      <Header />
-      <Form setTodos={setTodos} />
-      <DisplayList todolist={todos} />
+      <Header/>
+      <div className = "form__header">
+        <h3 className = "form__header__headline">Make a BucketList!</h3>
+        <p className = "form__header__text">Start living your dream... List your goals!</p>
+      </div>
+      <div className="container"><Form setTodos={setTodos} todos={todos} />
+      <DisplayList todolist={todos} setTodos={setTodos} onDelete={onDelete} onEdit={onEdit} /></div>
     </>
   );
 }

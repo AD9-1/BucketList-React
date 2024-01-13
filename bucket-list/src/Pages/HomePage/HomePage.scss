@@ -1,0 +1,27 @@
+.form__header {
+  margin-left: 3rem;
+  font-size: 1.5rem;
+  font-family: cursive;
+  
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  &__headline {
+    border-right: 4px solid #499e94;
+    padding-right: 1rem;
+    border-bottom: 4px solid #499e94;
+  }
+  &__text {
+    padding-left: 1rem;
+    text-align: center;
+    padding-top: 1rem;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

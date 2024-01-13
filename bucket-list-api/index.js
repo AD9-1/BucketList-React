@@ -42,11 +42,66 @@ app.post("/bucketlist", (req, res) => {
     doneBy: req.body.doneBy,
   };
   console.log(req.body);
-  console.log(newBucketlist);
+
   bucketlist.push(newBucketlist);
   fs.writeFileSync("./data/bucketlist.json", JSON.stringify(bucketlist));
   res.json(bucketlist);
 });
+
+app.delete("/bucketlist/:id", (req, res) => {
+  let bucketlist = fs.readFileSync("./data/bucketlist.json", "utf-8");
+  bucketlist = JSON.parse(bucketlist);
+  const updateBucketList = bucketlist.filter(
+    (bucket) => bucket.id !== req.params.id
+  );
+  fs.writeFileSync("./data/bucketlist.json", JSON.stringify(updateBucketList));
+  res.json(updateBucketList);
+});
+
+
+
+
+
+
+app.put("/bucketlist/:id", (req, res) => {
+  let bucketlist = fs.readFileSync("./data/bucketlist.json", "utf-8");
+  bucketlist = JSON.parse(bucketlist);
+
+  let findBucket = bucketlist.find((bucket) => bucket.id === req.params.id);
+
+  if (findBucket) {
+    console.log("Existing Bucket:", findBucket);
+
+    if (req.body==="") {
+      const updatedBucketList = bucketlist.filter(
+        (bucket) => bucket.id !== req.params.id
+      );
+     
+      findBucket["todo"] = req.body.todo ? req.body.todo : findBucket["todo"];
+      findBucket["todowhy"] = req.body.todowhy
+        ? req.body.todowhy
+        : findBucket["todowhy"];
+      findBucket["doneBy"] = req.body.doneBy
+        ? req.body.doneBy
+        : findBucket["doneBy"];
+
+      updatedBucketList.push(findBucket);
+
+      fs.writeFileSync(
+        "./data/bucketlist.json",
+        JSON.stringify(updatedBucketList, null, 2)
+      );
+      return res.json(updatedBucketList);
+    } 
+    else {
+      return res.status(400).json({ error: "Request body is missing." });
+    }
+  } else {
+    console.log("I am here");
+    return res.status(404).json({ error: "Bucket not found." });
+  }
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
