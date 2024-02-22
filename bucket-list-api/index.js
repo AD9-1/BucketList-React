@@ -58,11 +58,6 @@ app.delete("/bucketlist/:id", (req, res) => {
   res.json(updateBucketList);
 });
 
-
-
-
-
-
 app.put("/bucketlist/:id", (req, res) => {
   let bucketlist = fs.readFileSync("./data/bucketlist.json", "utf-8");
   bucketlist = JSON.parse(bucketlist);
@@ -72,11 +67,11 @@ app.put("/bucketlist/:id", (req, res) => {
   if (findBucket) {
     console.log("Existing Bucket:", findBucket);
 
-    if (req.body==="") {
+    if (req.body) {
       const updatedBucketList = bucketlist.filter(
         (bucket) => bucket.id !== req.params.id
       );
-     
+
       findBucket["todo"] = req.body.todo ? req.body.todo : findBucket["todo"];
       findBucket["todowhy"] = req.body.todowhy
         ? req.body.todowhy
@@ -92,8 +87,7 @@ app.put("/bucketlist/:id", (req, res) => {
         JSON.stringify(updatedBucketList, null, 2)
       );
       return res.json(updatedBucketList);
-    } 
-    else {
+    } else {
       return res.status(400).json({ error: "Request body is missing." });
     }
   } else {
