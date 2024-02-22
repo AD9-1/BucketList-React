@@ -10,7 +10,7 @@
     background-color: white;
     border: 1px solid #333;
     border-radius: 5px;
-    padding:5rem;
+    padding: 5rem;
     width: 200px;
     height: 200px;
 
@@ -30,19 +30,20 @@
 
     &__todo {
       font-size: 1.5rem;
-  
+      width: 120px;
       font-weight: 400;
     }
     &__reason {
       font-size: 1rem;
-     
+      margin-bottom: 20px;
       font-weight: 500;
     }
     &__date {
-      font-weight:500;
+      font-weight: 500;
     }
     button {
       background-color: rgb(29, 159, 156);
+      margin-bottom: 10px;
     }
   }
 }

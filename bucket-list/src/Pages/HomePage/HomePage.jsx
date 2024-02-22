@@ -20,17 +20,6 @@ function HomePage() {
   };
 
 
-const onEdit=async(event,id)=>{
-const response =await axios.put(`http://localhost:7071/bucketlist/${id}`,event);
-const updateTodo={
-  ...todos,
-  [event.target.name]:event.target.value
-}
-console.log(event.target.value)
-}
-
-
-
   const [todos, setTodos] = useState([]);
 
   const fetchTodoList = async () => {
@@ -50,7 +39,7 @@ console.log(event.target.value)
         <p className = "form__header__text">Start living your dream... List your goals!</p>
       </div>
       <div className="container"><Form setTodos={setTodos} todos={todos} />
-      <DisplayList todolist={todos} setTodos={setTodos} onDelete={onDelete} onEdit={onEdit} /></div>
+      <DisplayList todolist={todos} setTodos={setTodos} onDelete={onDelete} /></div>
     </>
   );
 }
